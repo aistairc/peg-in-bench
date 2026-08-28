@@ -91,26 +91,42 @@ Scenarios are generated as JSON files containing:
 
 ```json
 {
-  "scenario_seed": 123456,
-  "difficulty_level": "medium",
-  "tasks": [
-    {
-      "task_id": "task_1",
-      "type": "insertion",
-      "target_shape": "circle",
-      "tolerance": "1 mm",
-      "orientation": "90°",
-      "grid_position": "top-left"
-    }
+  "task_id": 1,
+  "name": "Same tolerance, different shapes",
+  "description": "One tolerance with every shape in a fixed insertion order directed by arm arrow.",
+  "tolerance": "3 mm",
+  "peg_order": [
+    "triangle",
+    "hexagon",
+    "L-shape",
+    "circle",
+    "rectangle"
   ],
-  "pieces_required": [
-    {
-      "id": "piece_1",
-      "shape": "circle",
-      "tolerance": "1 mm",
-      "count": 1
-    }
-  ]
+  "arm_arrow": {
+    "arm": "left",
+    "arrow_side": "left",
+    "arrow_direction": "right"
+  },
+  "placement_order": [
+    "rectangle",
+    "circle",
+    "L-shape",
+    "hexagon",
+    "triangle"
+  ],
+  "orientations": {
+    "triangle": "0\u00b0",
+    "hexagon": "0\u00b0",
+    "L-shape": "90\u00b0",
+    "circle": "135\u00b0",
+    "rectangle": "315\u00b0"
+  },
+  "notes": [
+    "Order is established before data collection and kept during execution.",
+    "Use one peg per shape in the chosen fixed order.",
+    "The arm arrow indicates which arm to use and the direction of insertion."
+  ],
+  "scenario_seed": 1
 }
 ```
 
