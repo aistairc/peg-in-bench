@@ -15,7 +15,7 @@ except ImportError:
     ImageTk = None
 
 SHAPES = ["triangle", "rectangle", "circle", "hexagon", "L-shape"]
-TOLERANCES = ["0.2 mm", "1 mm", "3 mm"]
+TOLERANCES = ["0.1 mm", "1 mm", "3 mm"]
 ORIENTATIONS = ["0°", "45°", "90°", "135°", "180°", "225°", "270°", "315°"]
 BASE_ORIENTATIONS = ["0°", "90°", "180°", "270°"]
 DEFAULT_IMAGE_DIR = "Photos"
