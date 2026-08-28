@@ -81,9 +81,9 @@ python Generate_Scenario.py \
 
 **Base Pieces** (for assembly scaffolding):
 - `base` - Simple platform (4 connection ports)
-- `corner-base` - Corner connector (2 ports)
-- `line-base` - Linear connector (2 ports)
-- `cross-base` - Cross junction (1 port)
+- `corner-base` - Corner connector (2 ports, 2 joints)
+- `line-base` - Linear connector (2 ports, 2 joints)
+- `cross-base` - Cross junction (0 port, 4 joints)
 
 ## Output Format
 
@@ -123,42 +123,41 @@ The `STL Files/` folder contains 3D models for 3D printing and CAD:
 ```
 STL Files/
 ├── Additional pieces/          # Supplementary connector pieces
-│   └── Various connector models
+│   └── Fixing pieces and Peg-holder
 ├── Bases/                      # Foundation/platform pieces
 │   ├── base.stl
 │   ├── corner-base.stl
 │   ├── line-base.stl
 │   └── cross-base.stl
-├── Pegs/                       # Peg/hole inserts
+├── Pegs/                      
 │   ├── circle/
 │   ├── triangle/
 │   ├── rectangle/
 │   ├── hexagon/
 │   └── L-shape/
-└── Shaped-holes/              # Receiving cavity pieces
-    ├── 0.1mm/                 # Tight tolerance cavities
+└── Shaped-holes/              # Receiving shaped-hole pieces
+    ├── 0.1mm/                 # Tight tolerance
     │   ├── circle_0.1mm.stl
     │   ├── triangle_0.1mm.stl
     │   ├── rectangle_0.1mm.stl
     │   ├── hexagon_0.1mm.stl
     │   └── L-shape_0.1mm.stl
-    ├── 1mm/                   # Medium tolerance cavities
+    ├── 1mm/                   # Medium tolerance
     │   └── [Shape files]
-    └── 3mm/                   # Loose tolerance cavities
+    └── 3mm/                   # Loose tolerance 
         └── [Shape files]
 ```
 
 ### STL File Descriptions
 
 **Bases**
-- Foundation pieces that hold pegs or act as assembly anchors
+- Foundation pieces that hold the shaped-holes or act as assembly components
 - Each base has connection ports that match other pieces
 - Used to create fixed or semi-fixed assembly scaffolds
 
 **Pegs** (Insertable pieces)
 - 5 different shapes: circle, triangle, rectangle, hexagon, L-shape
 - Available in various sizes and orientations
-- Can be rotated (0°, 90°, 180°, 270°, 45°, 135°, 225°, 315°)
 
 **Shaped Holes** (Receiving cavities)
 - Precision-manufactured holes matching each peg shape
@@ -167,6 +166,7 @@ STL Files/
   - **1mm** - Standard assembly tolerance
   - **3mm** - Loose tolerance for ease of insertion
 - Each tolerance level contains all 5 shapes
+- Can be rotated inside the bases (0°, 90°, 180°, 270°, 45°, 135°, 225°, 315°)
 
 ### Tolerance Levels Explained
 
@@ -215,30 +215,6 @@ The tool includes logic for validating piece connections:
 - Joints must connect to holes (one-to-one mapping)
 - Opposite sides have complementary connectors
 - Base pieces have fixed connector patterns
-
-## For Developers
-
-### Main Components
-
-1. **PieceImageStore** - Manages image loading and rotation
-2. **Scenario Builder** - Creates task sequences
-3. **Layout Planner** - Validates piece connectivity
-4. **Seed Management** - Ensures reproducibility
-
-### Adding New Shapes
-
-1. Create STL files in `STL Files/Pegs/[shape]/`
-2. Add cavity files in `STL Files/Shaped-holes/[tolerance]/[shape]_[tolerance].stl`
-3. Add PNG images to `Photos/` and `Photos_45/`
-4. Update `SHAPES` list in `Generate_Scenario.py`
-5. Add connector mapping in `PIECE_CONNECTORS_0` if needed
-
-### Adding New Tolerances
-
-1. Create new cavity files: `STL Files/Shaped-holes/[tolerance]/`
-2. Add new PNG images to `Photos/` with naming: `[Shape]_[tolerance].png`
-3. Update `TOLERANCES` list in the script
-4. Update `_normalize_tolerance_token()` function if needed
 
 ## Troubleshooting
 
