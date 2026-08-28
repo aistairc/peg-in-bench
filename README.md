@@ -246,7 +246,7 @@ python Generate_Scenario.py --gui
 
 #### Main Window Layout
 
-![GUI Main Window](./docs/images/gui_main_window.png)
+![GUI Main Window](/docs/images/gui_main_window.png)
 > Screenshot: Main scenario generator interface with controls and preview
 
 #### Task 1 Configuration Panel
