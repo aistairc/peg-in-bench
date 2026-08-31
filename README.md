@@ -2,6 +2,10 @@
 
 A Python-based tool for generating randomized assembly scenarios for a peg-in-hole benchmarking platform. This tool creates detailed task specifications with customizable pieces, tolerances, and orientations.
 
+## Acknowledgement
+
+This paper is based on results obtained from a project, JPNP25015, commissioned by the New Energy and Industrial Technology Development Organization (NEDO).
+
 ## Overview
 
 The Peg-in-Bench system is designed to evaluate robotic and human assembly capabilities using modular puzzle-like pieces. The scenario generator creates randomized yet reproducible test scenarios with varying difficulty levels based on shape complexity, tolerance requirements, and piece orientations.
