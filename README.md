@@ -248,14 +248,9 @@ python Generate_Scenario.py --gui
 
 ### GUI Components
 
-#### Main Window Layout
-
-![GUI Main Window](/docs/images/gui_main_window.png)
-> Screenshot: Main scenario generator interface with controls and preview
-
 #### Task 1 Configuration Panel
 
-The **Task 1** panel is seed-driven: instead of manually selecting each shape and orientation, you provide a numeric **seed**, choose the **tolerance** level, and select the executing **arm** (left, right, or either). The seed deterministically generates the set of shapes, their orientations, and grid positions shown in the preview — this is the workflow used for the examples below.
+The **Task 1** panel is seed-driven: instead of manually selecting each shape and orientation, you provide a numeric **seed**, choose the **tolerance** level, and select the executing **arm** (left or right). The seed deterministically generates the set of shapes, their orientations, and grid positions shown in the preview — this is the workflow used for the examples below.
 
 **Task 1 Parameters (GUI)**:
 
@@ -263,7 +258,7 @@ The **Task 1** panel is seed-driven: instead of manually selecting each shape an
 |-----------|---------|-------------|
 | **Seed** | Integer | Deterministic generator seed — selects the shapes, orientations, and positions for Task 1 |
 | **Tolerance** | 0.1 mm, 1 mm, 3 mm | Fixes the tolerance for all pieces in Task 1 (controls insertion difficulty) |
-| **Arm** | left, right, either | Which robot arm is assigned; affects task ordering and left/right layout cues |
+| **Arm** | left, right | Which robot arm is assigned; affects task ordering and left/right layout cues |
 
 ![Task 1 Seed Example](./docs/images/scenario.png)
 > Example: Task 1 generated from a single seed with the same tolerance applied across different shapes (left-arm assignment shown)
@@ -294,9 +289,8 @@ Once Task 1 is defined by a seed + tolerance + arm selection, the GUI determinis
    - Enter a numeric **Seed** (integer)
    - Choose **Tolerance** (0.1 mm / 1 mm / 3 mm)
    - Choose **Arm** (left, right, either)
-3. **Preview**: The preview will render the shapes, orientations and grid locations derived from the seed
-4. **Generate**: Click "Generate Scenario" to build the scenario
-5. **Save**: Save scenario to JSON or export the Task 1 template
+3. **Generate**: Click "Generate Scenario" to build the scenario
+4. **Save**: Save scenario to JSON or export the Task 1 template
 
 
 ### GUI Interactive Features
